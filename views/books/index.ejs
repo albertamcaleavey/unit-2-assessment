@@ -15,7 +15,10 @@
       <li>
         <%= book.title %> 
       -
-      <%= book.read ? 'Read' : 'Not Read' %> 
+      <%= book.read ? 'Read' : 'Not Read' %>
+      <form method="POST" action="/books/<%= book._id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+      </form>
       </li>
   <% }) %>
   </ul>
