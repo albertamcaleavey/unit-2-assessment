@@ -1,12 +1,12 @@
 import { Book } from '../models/book.js'
 
 
-function index(req, res){
+function index(req, res) {
   Book.find({})
   .then(books => {
     res.render('books/index', {
       books,
-      title: 'Book List'
+      title: "Book List"
     })
   })
   .catch(err => {
@@ -21,9 +21,21 @@ function newBook(req, res) {
   })
 }
 
+function create(req, res) {
+  console.log(req.body)
+  Book.create(req.body)
+  .then(book => {
+    res.redirect('/books')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/books")
+  })
+}
+
 
 export {
   index,
   newBook as new,
-
+  create,
 }

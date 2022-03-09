@@ -10,6 +10,17 @@
 <body>
   <h1><%= title %> </h1>
   <a href="/books/new">Add a new Book</a>
+  <ul>
+    <% books.forEach(book => { %>
+      <li>
+        <%= book.title %> 
+      -
+      <%= book.read ? 'Read' : 'Not Read' %> 
+      </li>
+  <% }) %>
+  </ul>
+  
+  
   
 </body>
 </html>
